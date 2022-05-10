@@ -34,7 +34,7 @@
             <input type="number" id="flourAmount" />
             <select id="flourMeasurement" name="flour" size="3">
               <option value="tsp">Tsp</option>
-              <option value="tbs">Tbsp</option>
+              <option value="tbsp">Tbsp</option>
               <option value="cup">Cup</option>
             </select>
           </li>
@@ -43,7 +43,7 @@
             <input type="number" id="waterAmount" />
             <select id="waterMeasurement" name="water" size="3">
               <option value="tsp">Tsp</option>
-              <option value="tbs">Tbsp</option>
+              <option value="tbsp">Tbsp</option>
               <option value="cup">Cup</option>
             </select>
           </li>
@@ -52,7 +52,7 @@
             <input type="number" id="butterAmount" />
             <select id="butterMeasurement" name="butter" size="3">
               <option value="tsp">Tsp</option>
-              <option value="tbs">Tbsp</option>
+              <option value="tbsp">Tbsp</option>
               <option value="cup">Cup</option>
             </select>
           </li>
@@ -61,7 +61,7 @@
             <input type="number" id="bakingSodaAmount" />
             <select id="bsMeasurement" name="bakingSoda" size="3">
               <option value="tsp">Tsp</option>
-              <option value="tbs">Tbsp</option>
+              <option value="tbsp">Tbsp</option>
               <option value="cup">Cup</option>
             </select>
           </li>
@@ -70,7 +70,7 @@
             <input type="number" id="bakingPowderAmount" />
             <select id="bpMeasurement" name="bakingPowder" size="3">
               <option value="tsp">Tsp</option>
-              <option value="tbs">Tbsp</option>
+              <option value="tbsp">Tbsp</option>
               <option value="cup">Cup</option>
             </select>
           </li>
@@ -79,7 +79,7 @@
             <input type="number" id="saltAmount" />
             <select id="saltMeasurement" name="salt" size="3">
               <option value="tsp">Tsp</option>
-              <option value="tbs">Tbsp</option>
+              <option value="tbsp">Tbsp</option>
               <option value="cup">Cup</option>
             </select>
           </li>
@@ -88,7 +88,7 @@
             <input type="number" id="oilAmount" />
             <select id="oilMeasurement" name="oil" size="3">
               <option value="tsp">Tsp</option>
-              <option value="tbs">Tbsp</option>
+              <option value="tbsp">Tbsp</option>
               <option value="cup">Cup</option>
             </select>
           </li>
@@ -97,7 +97,7 @@
             <input type="number" id="milkAmount" />
             <select id="milkMeasurement" name="milk" size="3">
               <option value="tsp">Tsp</option>
-              <option value="tbs">Tbsp</option>
+              <option value="tbsp">Tbsp</option>
               <option value="cup">Cup</option>
             </select>
           </li>
@@ -106,18 +106,25 @@
             <input type="number" id="yeastAmount" />
             <select id="yeastMeasurement" name="yeast" size="3">
               <option value="tsp">Tsp</option>
-              <option value="tbs">Tbsp</option>
+              <option value="tbsp">Tbsp</option>
               <option value="cup">Cup</option>
             </select>
           </li>
           <li><p>Convert To:</p></li>
 
           <li>
-            <input type="radio" id="toGrams" />
-            <label for="grams">Grams</label>
-            <br />
-            <input type="radio" id="toOunces" />
-            <label for="ounces">Ounces</label>
+            <input
+              type="radio"
+              name="weightType"
+              id="toGrams"
+              value="Gram"
+            />Grams
+            <input
+              type="radio"
+              name="weightType"
+              id="toOunces"
+              value="Ounce"
+            />Ounces
           </li>
         </ul>
       </form>
@@ -127,5 +134,6 @@
       </div>
     </div>
   </body>
-  <script src="main.js"></script>
+  <script type="module" src="main.js"></script>
+  <script type="module" src="converter.js"></script>
 </html>

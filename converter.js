@@ -4,24 +4,26 @@
 
 
 export function convert(type, amount, ingr) {
+	let i = eval(ingr);
 switch (type) {
 	case 'tspGram' :
-		return round(amount * ingr.tspGram);
+		console.log(ingr)
+		return amount * i.tspGram;
 		break;
-	case 'tbsGram' :
-		return round(amount * ingr.tbsGram);
+	case 'tbspGram' :
+		return amount * i.tbsGram;
 		break;
 	case 'cupGram' :
-		return round(amount * ingr.cupGram);
+		return amount * i.cupGram;
 		break;
 	case 'tspOunce' :
-		return round(amount * ingr.tspOunce);
+		return amount * i.tspOunce;
 		break;
 	case 'tbspOunce' :
-		return round(amount * ingr.tbsOunce);
+		return amount * i.tbsOunce;
 		break;
 	case 'cupOunce' :
-		return round(amount * ingr.cupOunce);
+		return amount * i.cupOunce;
 		break;
 	case 'gram' :
 		break;

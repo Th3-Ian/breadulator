@@ -1,5 +1,5 @@
 //import { doc } from 'prettier';
-//import {convert, convertWeight} from '/converter.js'
+import { convert, convertWeight } from './converter.js';
 
 // Get user input from form
 
@@ -38,14 +38,14 @@ let ingredientsList = [
 
 submit.addEventListener('click', (e) => {
 	e.preventDefault();
+	let weightType = document.querySelector('input[name=weightType]:checked')
 	for (let i = 0; i < ingredientsList.length; i++) {
-		console.log(ingredientsList[i].name, ingredientsList[i].amount.value, ingredientsList[i].measurement.value);
+		if (ingredientsList[i].measurement.value !== ''){
+			console.log(ingredientsList[i].amount.value)
+			console.log(convert(ingredientsList[i].measurement.value + weightType.value, ingredientsList[i].amount.value, ingredientsList[i].name));
+		}
 	}
-	//console.log(flourAmount.value, flourMeasurement.value);
 })
-
-// pair up each ingredient, put into an array,
-//run array through for loop that calls convert()
 
 
 
