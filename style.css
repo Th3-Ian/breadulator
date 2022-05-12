@@ -18,6 +18,10 @@ li {
 	list-style: none;
 }
 
+.main-body {
+	display: none;
+}
+
 /* Navbar Stylings */
 
 .navbar {
