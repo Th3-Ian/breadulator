@@ -42,7 +42,7 @@ submit.addEventListener('click', (e) => {
 	output.innerHTML = "";
 	let weightType = document.querySelector('input[name=weightType]:checked')
 	for (let i = 0; i < ingredientsList.length; i++) {
-		if (ingredientsList[i].measurement.value !== ''){
+		if (ingredientsList[i].measurement.value !== '' && ingredientsList[i].amount.value > 0){
 			let newAmount = convert(ingredientsList[i].measurement.value + weightType.value, ingredientsList[i].amount.value, ingredientsList[i].name);
 			sendOutput(ingredientsList[i].name, newAmount, weightType.value);
 		}
