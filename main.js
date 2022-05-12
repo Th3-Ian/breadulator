@@ -3,6 +3,7 @@ import { convert, convertWeight } from './converter.js';
 
 // Get user input from form
 
+const output = document.querySelector('.converter-output');
 const submit = document.querySelector('#submit');
 const flourAmount = document.querySelector('#flourAmount');
 const flourMeasurement = document.querySelector('#flourMeasurement');
@@ -38,11 +39,12 @@ let ingredientsList = [
 
 submit.addEventListener('click', (e) => {
 	e.preventDefault();
+	output.innerHTML = "";
 	let weightType = document.querySelector('input[name=weightType]:checked')
 	for (let i = 0; i < ingredientsList.length; i++) {
 		if (ingredientsList[i].measurement.value !== ''){
-			console.log(ingredientsList[i].amount.value)
-			console.log(convert(ingredientsList[i].measurement.value + weightType.value, ingredientsList[i].amount.value, ingredientsList[i].name));
+			let newAmount = convert(ingredientsList[i].measurement.value + weightType.value, ingredientsList[i].amount.value, ingredientsList[i].name);
+			sendOutput(ingredientsList[i].name, newAmount, weightType.value);
 		}
 	}
 })
@@ -50,3 +52,9 @@ submit.addEventListener('click', (e) => {
 
 
 // for loop to create elements and display answer into #converter-output
+
+function sendOutput(name, num, weight) {
+	const p = document.createElement('p')
+	p.textContent = `${name} weighs ${num} ${weight}`;
+	output.appendChild(p);
+}

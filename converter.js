@@ -7,7 +7,6 @@ export function convert(type, amount, ingr) {
 	let i = eval(ingr);
 switch (type) {
 	case 'tspGram' :
-		console.log(ingr)
 		return amount * i.tspGram;
 		break;
 	case 'tbspGram' :
