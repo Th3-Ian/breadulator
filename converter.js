@@ -3,26 +3,26 @@
 //const { bigIntLiteral } = require("@babel/types");
 
 
-export function convert(type, amount, ingr) {
+export function convert(type, amount, ingr, serving) {
 	let i = eval(ingr);
 switch (type) {
 	case 'tspGram' :
-		return amount * i.tspGram;
+		return serving * (amount * i.tspGram);
 		break;
 	case 'tbspGram' :
-		return amount * i.tbsGram;
+		return serving * (amount * i.tbsGram);
 		break;
 	case 'cupGram' :
-		return amount * i.cupGram;
+		return serving * (amount * i.cupGram);
 		break;
 	case 'tspOunce' :
-		return amount * i.tspOunce;
+		return serving * (amount * i.tspOunce);
 		break;
 	case 'tbspOunce' :
-		return amount * i.tbsOunce;
+		return serving * (amount * i.tbsOunce);
 		break;
 	case 'cupOunce' :
-		return amount * i.cupOunce;
+		return serving * (amount * i.cupOunce);
 		break;
 	case 'gram' :
 		break;

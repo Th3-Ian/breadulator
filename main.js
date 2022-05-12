@@ -4,6 +4,7 @@ import { convert, convertWeight } from './converter.js';
 // Get user input from form
 
 const output = document.querySelector('.converter-output');
+let serving = document.querySelector("#serving");
 const submit = document.querySelector('#submit');
 const flourAmount = document.querySelector('#flourAmount');
 const flourMeasurement = document.querySelector('#flourMeasurement');
@@ -36,6 +37,7 @@ let ingredientsList = [
 	{name: 'yeast', amount: yeastAmount, measurement: yeastMeasurement}
 ]
 
+serving.value = 1;
 
 submit.addEventListener('click', (e) => {
 	e.preventDefault();
@@ -43,7 +45,7 @@ submit.addEventListener('click', (e) => {
 	let weightType = document.querySelector('input[name=weightType]:checked')
 	for (let i = 0; i < ingredientsList.length; i++) {
 		if (ingredientsList[i].measurement.value !== '' && ingredientsList[i].amount.value > 0){
-			let newAmount = convert(ingredientsList[i].measurement.value + weightType.value, ingredientsList[i].amount.value, ingredientsList[i].name);
+			let newAmount = convert(ingredientsList[i].measurement.value + weightType.value, ingredientsList[i].amount.value, ingredientsList[i].name, serving.value);
 			sendOutput(ingredientsList[i].name, newAmount, weightType.value);
 		}
 	}
