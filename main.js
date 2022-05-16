@@ -1,6 +1,6 @@
 //import { doc } from 'prettier';
 import { convert, convertWeight } from './converter.js';
-import { adjustHydration } from './hydration-calc.js';
+import { adjustHydration, updateWater } from './hydration-calc.js';
 // Get user input from form
 
 const output = document.querySelector('.converter-output');
