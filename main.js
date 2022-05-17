@@ -3,6 +3,7 @@ import { convert, convertWeight } from './converter.js';
 import { adjustHydration, updateWater } from './hydration-calc.js';
 // Get user input from form
 
+// Converter dom objects
 const output = document.querySelector('.converter-output');
 let serving = document.querySelector("#serving");
 const submit = document.querySelector('#submit');
@@ -37,6 +38,15 @@ let ingredientsList = [
 	{name: 'yeast', amount: yeastAmount, measurement: yeastMeasurement}
 ]
 
+// Hydration Calc dom objects
+let hydrationInput = document.querySelector('#hydrationLevel');
+let flourHydration = document.querySelector('#flourHydration');
+let waterHydration = document.querySelector('#waterHydration');
+let saltHydration = document.querySelector('#saltHydraOutput')
+
+// Placeholder amounts for Hydration Calc
+hydrationInput.ariaPlaceholder = 75;
+
 serving.value = 1;
 
 submit.addEventListener('click', (e) => {
@@ -60,3 +70,8 @@ function sendOutput(name, num, weight) {
 	p.textContent = `${name} weighs ${num} ${weight}`;
 	output.appendChild(p);
 }
+
+
+// Hydration Calculator Event Listeners
+
+hydrationInput.addEventListener('change', )

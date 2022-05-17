@@ -142,16 +142,49 @@
       <form action="">
         <ul>
           <li>
-            <label for="flourHydration">Flour</label>
-            <input type="number" name="flourHydration" id="flourHydration" />
+            <label for="hydrationLevel">Hydration</label>
+            <input
+              type="number"
+              name="hydrationLevel"
+              id="hydrationLevel"
+              required
+            />
           </li>
           <li>
+            <p>Weight</p>
+            <label for="">Grams </label>
+            <input
+              type="radio"
+              name="weight"
+              id="gramsHydra"
+              value="gram"
+              required
+            />
+            <label for="">Ounces </label>
+            <input type="radio" name="weight" id="ounces" value="ounce" />
+          </li>
+          <li>
+            <label for="flourHydration">Flour</label>
+            <input
+              type="number"
+              name="flourHydration"
+              id="flourHydration"
+              required
+            />
+          </li>
+
+          <li>
             <label for="waterHydration">Water</label>
-            <input type="number" name="waterHydration" id="waterHydration" />
+            <input
+              type="number"
+              name="waterHydration"
+              id="waterHydration"
+              required
+            />
           </li>
           <li>
             <label for="saltHydration">Salt</label>
-            <input type="number" name="saltHydration" id="saltHydration" />
+            <p id="saltHydraOutput"></p>
           </li>
           <li>
             <label for="leaven">Leaven</label>
