@@ -1,6 +1,6 @@
 //import { doc } from 'prettier';
 import { convert, convertWeight } from './converter.js';
-import { adjustHydration, updateWater } from './hydration-calc.js';
+import { adjustHydration, adjustWater } from './hydration-calc.js';
 // Get user input from form
 
 // Converter dom objects
@@ -42,10 +42,9 @@ let ingredientsList = [
 let hydrationInput = document.querySelector('#hydrationLevel');
 let flourHydration = document.querySelector('#flourHydration');
 let waterHydration = document.querySelector('#waterHydration');
-let saltHydration = document.querySelector('#saltHydraOutput')
+let saltHydration = document.querySelector('#saltHydraOutput');
+let leavenHydration = document.querySelector('#leavenHydration');
 
-// Placeholder amounts for Hydration Calc
-hydrationInput.ariaPlaceholder = 75;
 
 serving.value = 1;
 
@@ -74,4 +73,30 @@ function sendOutput(name, num, weight) {
 
 // Hydration Calculator Event Listeners
 
-hydrationInput.addEventListener('change', )
+hydrationInput.addEventListener('change', () => { updateHydration() });
+flourHydration.addEventListener('input', () => { updateHydration() });
+leavenHydration.addEventListener('input', () => { updateHydration() });
+waterHydration.addEventListener('input', () => { updateWater() });
+
+function updateHydration() {
+	console.log(`pre update ${hydrationInput.value}`)
+
+	let updatedLevels = adjustHydration(flourHydration.value, hydrationInput.value, leavenHydration.value);
+	console.log(updatedLevels);
+	flourHydration.value = updatedLevels[0];
+	waterHydration.value = updatedLevels[1];
+	saltHydration.value = updatedLevels[2];
+	hydrationInput.value = updatedLevels[3];
+	leavenHydration.value = updatedLevels[4];
+}
+
+function updateWater() {
+	let updatedLevels = adjustWater(flourHydration.value, waterHydration.value, leavenHydration.value);
+
+	flourHydration.value = updatedLevels[0];
+	hydrationInput.value = updatedLevels[1];
+	saltHydration.value = updatedLevels[2];
+	if(updatedLevels[3] !== null) {
+		leavenHydration.value = updatedLevels[3];
+	}
+}
