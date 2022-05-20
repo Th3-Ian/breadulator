@@ -48,15 +48,6 @@ class Ingredient {
 // Create multiple const with the amount 1 tsp = x grams for butter etc. ???
 // OR create an Object of Butter that holds that data inside.
 
-export function convertWeight(weight, type) {
-	//used to convert grams to ounches or vice versa
-	if (type === 'gram') {
-		return weight * 0.035274;
-	} else {
-		return weight / 0.035274;
-	}
-}
-
 const flour = new Ingredient('All Purpose Flour', 2.6, 8, 120, 0.09, 0.28, 4.23);
 const breadFlour = new Ingredient('Bread Flour', 2.65, 8, 120, 0.09, 0.28, 4.23);
 const water = new Ingredient('Water', 5, 15, 240, 0.17, 0.5, 8.46);

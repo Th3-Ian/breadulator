@@ -1,6 +1,6 @@
 //import { doc } from 'prettier';
-import { convert, convertWeight } from './converter.js';
-import { adjustHydration, adjustWater } from './hydration-calc.js';
+import { convert } from './converter.js';
+import { adjustHydration, adjustWater, convertWeight } from './hydration-calc.js';
 // Get user input from form
 
 // Converter dom objects
@@ -77,6 +77,7 @@ hydrationInput.addEventListener('change', () => { updateHydration() });
 flourHydration.addEventListener('input', () => { updateHydration() });
 leavenHydration.addEventListener('input', () => { updateHydration() });
 waterHydration.addEventListener('input', () => { updateWater() });
+
 
 function updateHydration() {
 	console.log(`pre update ${hydrationInput.value}`)

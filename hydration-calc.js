@@ -35,3 +35,13 @@ export function adjustWater(flour, water, leaven) {
 	}
 }
 
+// Utility function
+
+export function convertWeight(num, type) {
+	//used to convert grams to ounches or vice versa
+	if (type === 'gram') {
+		return num * 0.035274;
+	} else {
+		return num / 0.035274;
+	}
+}
