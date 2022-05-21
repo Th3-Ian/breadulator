@@ -1,5 +1,4 @@
 //import { doc } from 'prettier';
-import { doc } from 'prettier';
 import { convert } from './converter.js';
 import { adjustHydration, adjustWater, convertWeight } from './hydration-calc.js';
 // Get user input from form
@@ -7,7 +6,7 @@ import { adjustHydration, adjustWater, convertWeight } from './hydration-calc.js
 // Converter dom objects
 const convertMenu = document.querySelector('#menuConverter');
 const hydraMenu = document.querySelector('#menuHydra');
-const hydraBody = document.querySelector(".hydra-calc");
+const hydraBody = document.querySelector(".hydration-calc");
 const convertBody = document.querySelector(".main-body");
 const output = document.querySelector('.converter-output');
 let serving = document.querySelector("#serving");
@@ -85,8 +84,21 @@ hydrationInput.addEventListener('change', () => { updateHydration() });
 flourHydration.addEventListener('input', () => { updateHydration() });
 leavenHydration.addEventListener('input', () => { updateHydration() });
 waterHydration.addEventListener('input', () => { updateWater() });
-//gramHydraRadio.addEventListener('click', () => { handleWeight(gramHydraRadio.value) });
 weightHydra.addEventListener('click', () => { handleWeight() });
+hydraMenu.addEventListener('click', (e) => {
+	e.preventDefault();
+	hydraBody.classList.remove('disp-none');
+	hydraBody.classList.add('disp-block');
+	convertBody.classList.remove('disp-block');
+	convertBody.classList.add('disp-none');
+})
+convertMenu.addEventListener('click', (e) => {
+	e.preventDefault();
+	convertBody.classList.remove('disp-none');
+	convertBody.classList.add('disp-block');
+	hydraBody.classList.remove('disp-block');
+	hydraBody.classList.add('disp-none');
+})
 
 
 function updateHydration() {

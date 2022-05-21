@@ -18,8 +18,12 @@ li {
 	list-style: none;
 }
 
-.main-body {
+.disp-none {
 	display: none;
+}
+
+.disp-block {
+	display: block;
 }
 
 /* Navbar Stylings */
