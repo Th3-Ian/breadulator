@@ -17,9 +17,8 @@
         <label for="checkbox_toggle" class="hamburger">&#9776;</label>
         <div class="menu">
           <li><a href="/">Home</a></li>
-          <li><a href="/">Converter</a></li>
-          <li><a href="/">Bread Hydration</a></li>
-          <li><a href="/">Journal</a></li>
+          <li><a href="/" id="menuConverter">Converter</a></li>
+          <li><a href="/" id="menuHydra">Bread Hydration</a></li>
         </div>
       </ul>
     </nav>
@@ -153,19 +152,21 @@
               required
             />
           </li>
-          <li>
-            <p>Weight</p>
-            <label for="gramsHydra">Grams </label>
-            <input
-              type="radio"
-              name="weight"
-              id="gramsHydra"
-              value="gram"
-              required
-            />
-            <label for="ounces">Ounces </label>
-            <input type="radio" name="weight" id="ounces" value="ounce" />
-          </li>
+					<fieldset>
+						<legend>Weight Type</legend>
+						<p id="weightOutput">Grams</p>
+						<li>
+							<label for="weightHydra"></label>
+							<input
+								type="button"
+								name="weightHydra"
+								id="weightHydra"
+								value="Convert Weight"
+								required
+							/>
+						</li>
+					</fieldset>
+
           <li>
             <label for="flourHydration">Flour</label>
             <input

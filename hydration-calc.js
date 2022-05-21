@@ -39,9 +39,11 @@ export function adjustWater(flour, water, leaven) {
 
 export function convertWeight(num, type) {
 	//used to convert grams to ounches or vice versa
-	if (type === 'gram') {
+	if ( type === true ) {
+		//Grams to ounces
 		return num * 0.035274;
-	} else {
+	} else if ( type === false ) {
+		//Ounces to grams
 		return num / 0.035274;
 	}
 }

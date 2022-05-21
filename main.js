@@ -1,9 +1,14 @@
 //import { doc } from 'prettier';
+import { doc } from 'prettier';
 import { convert } from './converter.js';
 import { adjustHydration, adjustWater, convertWeight } from './hydration-calc.js';
 // Get user input from form
 
 // Converter dom objects
+const convertMenu = document.querySelector('#menuConverter');
+const hydraMenu = document.querySelector('#menuHydra');
+const hydraBody = document.querySelector(".hydra-calc");
+const convertBody = document.querySelector(".main-body");
 const output = document.querySelector('.converter-output');
 let serving = document.querySelector("#serving");
 const submit = document.querySelector('#submit');
@@ -44,7 +49,10 @@ let flourHydration = document.querySelector('#flourHydration');
 let waterHydration = document.querySelector('#waterHydration');
 let saltHydration = document.querySelector('#saltHydraOutput');
 let leavenHydration = document.querySelector('#leavenHydration');
-
+//const gramHydraRadio = document.querySelector('#gramsHydra');
+//const ounceHydraRadio = document.querySelector('#ouncesHydra');
+let gramHydraWeight = true;
+const hydraWeightOutput = document.querySelector('#weightOutput')
 
 serving.value = 1;
 
@@ -77,6 +85,8 @@ hydrationInput.addEventListener('change', () => { updateHydration() });
 flourHydration.addEventListener('input', () => { updateHydration() });
 leavenHydration.addEventListener('input', () => { updateHydration() });
 waterHydration.addEventListener('input', () => { updateWater() });
+//gramHydraRadio.addEventListener('click', () => { handleWeight(gramHydraRadio.value) });
+weightHydra.addEventListener('click', () => { handleWeight() });
 
 
 function updateHydration() {
@@ -101,3 +111,40 @@ function updateWater() {
 		leavenHydration.value = updatedLevels[3];
 	}
 }
+
+
+function handleWeight() {
+	console.log('handleWeight is firing')
+	/*
+	if(type === true) {
+
+		gramHydraRadio.removeEventListener('click', () => { handleWeight(gramHydraRadio.value) });
+		ounceHydraRadio.addEventListener('click', () => { handleWeight(ounceHydraRadio.value) });
+	} else {
+		console.log('else is working')
+		ounceHydraRadio.removeEventListener('click', () => { handleWeight(ounceHydraRadio.value) });
+		gramHydraRadio.addEventListener('click', () => { handleWeight(gramHydraRadio.value) });
+	}
+	*/
+
+	let ingredientsArr = [flourHydration.value, waterHydration.value, saltHydration.value, leavenHydration.value];
+	let updatedIngredients = []
+	for (let i = 0; i < ingredientsArr.length; i++) {
+		updatedIngredients.push(convertWeight(ingredientsArr[i], gramHydraWeight));
+	}
+	flourHydration.value = updatedIngredients[0];
+	waterHydration.value = updatedIngredients[1];
+	saltHydration.value = updatedIngredients[2];
+	leavenHydration.value = updatedIngredients[3];
+	if ( gramHydraWeight === true ) {
+		hydraWeightOutput.innerHTML = ''
+		hydraWeightOutput.innerHTML = 'Ounces'
+		gramHydraWeight = false;
+	} else if ( gramHydraWeight === false ) {
+		hydraWeightOutput.innerHTML = ''
+		hydraWeightOutput.innerHTML = 'Grams'
+		gramHydraWeight = true;
+	}
+	console.log(gramHydraWeight);
+}
+
