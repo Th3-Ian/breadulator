@@ -112,7 +112,9 @@
               <option value="cup">Cup</option>
             </select>
           </li>
-          <li><p>Convert To:</p></li>
+          <fieldset>
+						<legend>Convert To:</legend>
+
 
           <li>
             <input
@@ -130,9 +132,13 @@
               value="Ounce"
             />Ounces
           </li>
+				</fieldset>
         </ul>
+				<div class="submit-container">
+					<button id="submit" class="button-2">Convert</button>
+				</div>
       </form>
-      <button id="submit">Convert</button>
+
       <div class="converter-output">
         <p></p>
       </div>
